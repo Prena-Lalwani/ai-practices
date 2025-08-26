@@ -1,5 +1,4 @@
-"""Legacy installation process, i.e. `setup.py install`.
-"""
+"""Legacy installation process, i.e. `setup.py install`."""
 
 import logging
 import os

@@ -646,7 +646,7 @@ def _makeTags(tagStr, xml, suppress_LT=Suppress("<"), suppress_GT=Suppress(">"))
 
 
 def make_html_tags(
-    tag_str: Union[str, ParserElement]
+    tag_str: Union[str, ParserElement],
 ) -> Tuple[ParserElement, ParserElement]:
     """Helper to construct opening and closing tag expressions for HTML,
     given a tag name. Matches tags in either upper or lower case,
@@ -673,7 +673,7 @@ def make_html_tags(
 
 
 def make_xml_tags(
-    tag_str: Union[str, ParserElement]
+    tag_str: Union[str, ParserElement],
 ) -> Tuple[ParserElement, ParserElement]:
     """Helper to construct opening and closing tag expressions for XML,
     given a tag name. Matches tags only in the given upper/lower case.
@@ -803,6 +803,7 @@ def infix_notation(
         -2--11
         [[['-', 2], '-', ['-', 11]]]
     """
+
     # captive version of FollowedBy that does not do parse actions or capture results names
     class _FB(FollowedBy):
         def parseImpl(self, instring, loc, doActions=True):
