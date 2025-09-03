@@ -36,6 +36,9 @@ def main():
             selection = int(input("Enter the prospect number: ").strip())
             if 1 <= selection <= len(prospects):
                 selected_prospect = prospects[selection - 1]
+                question = input("Enter your question: ").strip()
+                answer = agent.answer_question_prospect(selected_prospect, question)
+                print(f"\nAnswer ({selected_prospect.capitalize()}):", answer)
             else:
                 print("Invalid selection. Exiting.")
                 return
@@ -43,11 +46,11 @@ def main():
             print("Invalid input. Please enter a number. Exiting.")
             return
 
-            question = input("Enter your question: ").strip()
-            answer = agent.answer_question_prospect(question, selected)
-            print(f"\nAnswer ({selected.capitalize()}):", answer)
-        else:
-            print("Invalid prospect selected. Please check the list and try again.")
+        #     # question = input("Enter your question: ").strip()
+        #     # answer = agent.answer_question_prospect(question, selected)
+        #     # print(f"\nAnswer ({selected.capitalize()}):", answer)
+        # else:
+        #     print("Invalid prospect selected. Please check the list and try again.")
 
     else:
         print("Invalid mode selected. Please enter 'global' or 'prospect'.")

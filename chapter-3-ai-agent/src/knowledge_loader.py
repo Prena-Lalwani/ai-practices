@@ -19,7 +19,8 @@ class KnowledgeLoader:
                     with open(file_path, "r", encoding="utf-8") as f:
                         content = f.read().strip()
                         # Store content with lowercase file name as key
-                        self.knowledge[file_name.lower()] = content
+                        prospect_name = os.path.splitext(file_name)[0].lower()
+                        self.knowledge[prospect_name] = content
                 except Exception as e:
                     print(f"Error reading '{file_name}': {e}")
 
@@ -29,9 +30,9 @@ class KnowledgeLoader:
     
 
     def get_prospect_knowledge(self, prospect_name: str):
-        return self.prospects.get(prospect_name.lower(), "")
+        return self.knowledge.get(prospect_name.lower(), "")
 
     
 
     def get_prospects_list(self):
-        return sorted(list(self.prospects.keys()))
+        return sorted(list(self.knowledge.keys()))

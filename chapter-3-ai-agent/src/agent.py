@@ -9,6 +9,16 @@ class KnowledgeAgent:
     def answer_question_global(self, question: str) -> str:
         # Step 1: Get combined knowledge
         knowledge_text = self.loader.get_all_knowledge()
+        return self._search_knowledge(question, knowledge_text, mode="global")
+    
+    def answer_question_prospect(self, prospect :str, question: str) -> str:
+        # Step 1: Get combined knowledge
+        knowledge_text = self.loader.get_prospect_knowledge(prospect)
+        return self._search_knowledge(question, knowledge_text, mode="prospect")
+    
+
+
+    def _search_knowledge(self, question:str, knowledge_text:str, mode: str) -> str:
 
         # Step 2: Split into sentences
         sentences = re.split(r"(?<=[.!?]) +", knowledge_text)
