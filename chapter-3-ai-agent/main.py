@@ -1,6 +1,7 @@
 from src.knowledge_loader import KnowledgeLoader
 from src.agent import KnowledgeAgent
 
+
 def main():
     # Step 1: Initialize Knowledge Loader
     loader = KnowledgeLoader("data")
@@ -10,8 +11,10 @@ def main():
 
     # Step 3: Ask user for answer mode
     print("Welcome to the Knowledge Agent!")
-    print("Do you want your question answered globally (all prospects) "
-          "or from a specific prospect? (Enter 'global' or 'prospect')")
+    print(
+        "Do you want your question answered globally (all prospects) "
+        "or from a specific prospect? (Enter 'global' or 'prospect')"
+    )
     mode = input("Mode: ").strip().lower()
 
     if mode == "global":
@@ -54,6 +57,7 @@ def main():
 
     else:
         print("Invalid mode selected. Please enter 'global' or 'prospect'.")
+
 
 if __name__ == "__main__":
     main()

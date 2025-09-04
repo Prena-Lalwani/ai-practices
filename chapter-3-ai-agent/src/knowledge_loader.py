@@ -27,12 +27,9 @@ class KnowledgeLoader:
     def get_all_knowledge(self) -> str:
         all_content = "\n\n".join(self.knowledge.values())
         return all_content
-    
 
     def get_prospect_knowledge(self, prospect_name: str):
         return self.knowledge.get(prospect_name.lower(), "")
-
-    
 
     def get_prospects_list(self):
         return sorted(list(self.knowledge.keys()))
