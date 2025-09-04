@@ -1,5 +1,22 @@
+import os
+import google.generativeai as genai
+from dotenv import load_dotenv
 from src.knowledge_loader import KnowledgeLoader
 from src.agent import KnowledgeAgent
+# from src.gemini_client import GeminiClient
+
+env_loaded = load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), ".env"))
+if not env_loaded:
+    print("⚠️ Warning: .env file not loaded, make sure it's in project root.")
+
+    # ✅ Step 1: Configure Gemini with API key
+api_key = os.getenv("GOOGLE_API_KEY")
+if not api_key:
+    raise ValueError("GOOGLE_API_KEY not found in environment variables.")
+
+genai.configure(api_key=api_key)
+print("Gemini API configured:")
+
 
 
 def main():
@@ -11,10 +28,8 @@ def main():
 
     # Step 3: Ask user for answer mode
     print("Welcome to the Knowledge Agent!")
-    print(
-        "Do you want your question answered globally (all prospects) "
-        "or from a specific prospect? (Enter 'global' or 'prospect')"
-    )
+    print("Do you want your question answered globally (all prospects) "
+          "or from a specific prospect? (Enter 'global' or 'prospect')")
     mode = input("Mode: ").strip().lower()
 
     if mode == "global":
@@ -57,7 +72,6 @@ def main():
 
     else:
         print("Invalid mode selected. Please enter 'global' or 'prospect'.")
-
 
 if __name__ == "__main__":
     main()
