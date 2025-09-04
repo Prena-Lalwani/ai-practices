@@ -1,21 +1,38 @@
 import re
-
+from src.gemini_client import GeminiClient
 
 class KnowledgeAgent:
     
     def __init__(self, knowledge_loader):
         self.loader = knowledge_loader
+        self.gemini = GeminiClient()
 
     def answer_question_global(self, question: str) -> str:
         # Step 1: Get combined knowledge
         knowledge_text = self.loader.get_all_knowledge()
-        return self._search_knowledge(question, knowledge_text, mode="global")
+        prompt = f"""
+        You are a knowledge assistant.
+        Context: {knowledge_text}
+
+        Question: {question}
+
+        Provide a clear, structured, and helpful answer based only on the context.
+        """
+        return self.gemini.ask(prompt)
     
     def answer_question_prospect(self, prospect :str, question: str) -> str:
         # Step 1: Get combined knowledge
         knowledge_text = self.loader.get_prospect_knowledge(prospect)
-        return self._search_knowledge(question, knowledge_text, mode="prospect")
-    
+        prompt = f"""
+        You are a knowledge assistant.
+        Prospect: {prospect}
+        Context: {knowledge_text}
+
+        Question: {question}
+
+        Provide a precise and structured answer relevant to this prospect.
+        """
+        return self.gemini.ask(prompt)    
 
 
     def _search_knowledge(self, question:str, knowledge_text:str, mode: str) -> str:
