@@ -13,3 +13,7 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+
+
+chapter-3-ai-agent/.env
+chapter-3-prompt-engineering/.env
