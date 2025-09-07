@@ -7,7 +7,6 @@ class RAGAgent:
     def __init__(self, loader, model_name="gemini-1.5-flash"):
         self.loader = loader
         self.client = GeminiClient(model_name)
-    
 
     def query_global(self, question: str) -> str:
         context = self.loader.get_all_knowledge()
