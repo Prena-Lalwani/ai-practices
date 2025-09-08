@@ -17,10 +17,12 @@ if not api_key:
 genai.configure(api_key=api_key)
 print("Gemini API configured:")
 
+
 def main():
     loader = KnowledgeLoader("data")
     agent = ConversationalAgent(loader)
-    history_manager = HistoryManager()
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    history_manager = HistoryManager(model)
 
     print("🤖 Chat with the agent (type 'exit' to quit)")
 
