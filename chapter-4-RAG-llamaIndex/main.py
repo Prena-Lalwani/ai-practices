@@ -1,6 +1,7 @@
 from src.knowledge_loader import KnowledgeLoader
 from src.conversational_agent import ConversationalAgent
 from dotenv import load_dotenv
+from src.history_manager import HistoryManager
 import google.generativeai as genai
 import os
 
@@ -19,6 +20,7 @@ print("Gemini API configured:")
 def main():
     loader = KnowledgeLoader("data")
     agent = ConversationalAgent(loader)
+    history_manager = HistoryManager()
 
     print("🤖 Chat with the agent (type 'exit' to quit)")
 
@@ -34,12 +36,14 @@ def main():
             print(f"{idx}. {p}")
         selection = int(input("Enter number: ").strip())
         if 1 <= selection <= len(prospects):
-            agent.set_mode("prospect", prospects[selection - 1])
+            chosen_prospect = prospects[selection - 1]
+            agent.set_mode("prospect", chosen_prospect)
         else:
             print("Invalid selection.")
             return
     else:
-        agent.set_mode("global")
+        chosen_prospect = "global"
+        agent.set_mode(chosen_prospect)
 
     # Chat loop
     while True:
@@ -49,6 +53,7 @@ def main():
         answer = agent.chat(user_input)
         print(f"Assistant: {answer}")
 
+        history_manager.append_turn(chosen_prospect, user_input, answer)
 
 if __name__ == "__main__":
     main()
