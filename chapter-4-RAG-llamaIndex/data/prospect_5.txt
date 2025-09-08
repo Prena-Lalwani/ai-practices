@@ -1,0 +1,11 @@
+Company Name: TerraStream
+
+Industry: Environmental Technology & Data Analytics
+
+Products/Services: TerraStream is a geospatial data and analytics company focused on providing actionable insights for environmental conservation and resource management. They use a combination of satellite imagery, drone data, and AI algorithms to monitor changes in land use, deforestation, water quality, and biodiversity. Their platform provides real-time alerts and detailed reports to help clients make informed decisions about resource allocation and sustainability.
+
+Target Customers: Government agencies (environmental protection, forestry), non-profit conservation organizations, and corporations with large land holdings (e.g., forestry companies, mining operations) seeking to meet ESG (Environmental, Social, and Governance) goals.
+
+Key Achievements or Milestones: Partnered with the Brazilian Ministry of Environment to monitor illegal logging activities in a protected area of the Amazon rainforest, leading to a 50% reduction in detected incursions in the first six months. They successfully raised a $10M Series A round to expand their satellite data acquisition partnerships. They were featured in a report by a global consulting firm as a leading solution for corporate environmental risk management.
+
+Challenges Faced: The high cost of satellite data acquisition can limit scalability. The need for high-resolution imagery means they are dependent on third-party providers. Gaining access to and interpreting government data sets can be a slow and bureaucratic process. The long-term impact of their services can be difficult to quantify in a traditional ROI model, requiring a different approach to sales.
